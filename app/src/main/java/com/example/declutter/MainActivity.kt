@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         thingAdapter.sort()
         auth = FirebaseAuth.getInstance()
         auth.signInAnonymously()
-        //petAdapter.add(Pet("newPet", "snake", "new pet", "3230", 53))
+        //thingAdapter.add(Thingummy("newThing", "newMaterial", "newDimensions", "newDescription", "contactInfo", "cityName"))
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
     }
 

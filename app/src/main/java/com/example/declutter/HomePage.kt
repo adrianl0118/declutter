@@ -22,9 +22,9 @@ class HomePage : Fragment() {
 
         binding.adoptPageButton.setOnClickListener{view:View ->
             if(!(binding.editZipCode.text.toString().equals(""))) {
-                petAdapter.sortBy(binding.editZipCode.text.toString().toInt())
+                thingAdapter.sortBy(binding.editZipCode.text.toString().toInt())
             } else {
-                petAdapter.reset()
+                thingAdapter.reset()
             }
             view.findNavController().navigate(R.id.action_homePage_to_petRecyclerFragment)
         }

@@ -20,16 +20,16 @@ class HomePage : Fragment() {
             false
         )
 
-        binding.adoptPageButton.setOnClickListener{view:View ->
-            if(!(binding.editZipCode.text.toString().equals(""))) {
-                thingAdapter.sortBy(binding.editZipCode.text.toString().toInt())
+        binding.findPageButton.setOnClickListener{view:View ->
+            if(!(binding.editCity.text.toString().equals(""))) {
+                thingAdapter.sortBy(binding.editCity.text.toString())
             } else {
                 thingAdapter.reset()
             }
             view.findNavController().navigate(R.id.action_homePage_to_petRecyclerFragment)
         }
 
-        binding.findHomeButton.setOnClickListener { view: View ->
+        binding.giveAwayButton.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_homePage_to_makeProfileFragment)
         }
 

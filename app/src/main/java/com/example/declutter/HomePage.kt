@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.example.declutter.databinding.FragmentHomePageBinding
 
 class HomePage : Fragment() {
@@ -19,6 +20,19 @@ class HomePage : Fragment() {
             false
         )
 
+        binding.adoptPageButton.setOnClickListener{view:View ->
+            if(!(binding.editZipCode.text.toString().equals(""))) {
+                petAdapter.sortBy(binding.editZipCode.text.toString().toInt())
+            } else {
+                petAdapter.reset()
+            }
+            view.findNavController().navigate(R.id.action_homePage_to_petRecyclerFragment)
+        }
 
+        binding.findHomeButton.setOnClickListener { view: View ->
+            view.findNavController().navigate(R.id.action_homePage_to_makeProfileFragment)
+        }
+
+        return binding.root
     }
 }

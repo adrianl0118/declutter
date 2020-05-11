@@ -25,7 +25,7 @@ class ThingummyAdapter {
         databaseReference = database.reference
         var key = databaseReference.child("allThings").push().key
         var ref = databaseReference.child("allThings/$key")
-        val childUpdates = mapOf("name" to thing?.name, "material" to thing?.material,
+        val childUpdates = mapOf("name" to thing?.name, "type" to thing?.type,
             "dim" to thing?.dim, "description" to thing?.description,
             "contact" to thing?.contact, "city" to thing?.city)
         ref.updateChildren(childUpdates)

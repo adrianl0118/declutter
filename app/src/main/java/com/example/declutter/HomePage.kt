@@ -26,11 +26,11 @@ class HomePage : Fragment() {
             } else {
                 thingAdapter.reset()
             }
-            view.findNavController().navigate(R.id.action_homePage_to_petRecyclerFragment)
+            view.findNavController().navigate(R.id.action_homePage_to_thingummyRecyclerFragment)
         }
 
         binding.giveAwayButton.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_homePage_to_makeProfileFragment)
+            view.findNavController().navigate(R.id.action_homePage_to_makeAdFragment)
         }
 
         return binding.root

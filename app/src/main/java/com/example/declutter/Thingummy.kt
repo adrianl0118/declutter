@@ -6,7 +6,7 @@ import com.google.firebase.database.IgnoreExtraProperties
 @IgnoreExtraProperties
 data class Thingummy(
     val name : String? = "",
-    val material : String? = "",
+    val type : String? = "",
     val dim : String? = "",
     val description : String? = "",
     val contact : String? = "",

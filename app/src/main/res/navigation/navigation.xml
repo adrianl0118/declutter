@@ -10,7 +10,32 @@
         tools:layout="@layout/fragment_home_page"
         android:name="com.example.declutter.HomePage"
         android:label="HomePage">
-        <action/>
+        <action
+            android:id="@+id/action_homePage_to_thingummyRecyclerFragment"
+            app:destination="@id/thingummyRecyclerFragment" />
+        <action
+            android:id="@+id/action_homePage_to_makeAdFragment"
+            app:destination="@id/makeAdFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/thingummyRecyclerFragment"
+        android:name="com.example.declutter.ThingummyRecycler"
+        tools:layout="@layout/fragment_thingummy_recycler" >
+        android:label="PetRecyclerFragment" >
+        <action
+            android:id="@+id/action_thingummyRecyclerFragment_to_homePage"
+            app:destination="@id/HomePage" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/makeAdFragment"
+        android:name="com.example.declutter.MakeAdFragment"
+        android:label="MakeProfileFragment" >
+        <action
+            android:id="@+id/action_makeAdFragment_to_homePage"
+            app:destination="@id/HomePage" />
     </fragment>
 
 </navigation>

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.declutter.databinding.FragmentThingummyRecyclerBinding
 
+// A catalogue of all things in the database presented using RecyclerView
 class ThingummyRecyclerFragment : Fragment() {
 
     override fun onCreateView(

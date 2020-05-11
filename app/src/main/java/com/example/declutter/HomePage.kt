@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.declutter.databinding.FragmentHomePageBinding
 
+// Home page, can search catalogue by location, navigate to posting ad fragment for giving something away
 class HomePage : Fragment() {
 
     override  fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View? {
@@ -20,15 +21,15 @@ class HomePage : Fragment() {
             false
         )
 
+        //Set onClickListener for buttons
         binding.findPageButton.setOnClickListener{view:View ->
-            if(!(binding.editCity.text.toString().equals(""))) {
-                thingAdapter.sortBy(binding.editCity.text.toString())
+            if(!(binding.editPostal.text.toString().equals(""))) {
+                thingAdapter.sortBy(binding.editPostal.text.toString())
             } else {
                 thingAdapter.reset()
             }
             view.findNavController().navigate(R.id.action_homePage_to_thingummyRecyclerFragment)
         }
-
         binding.giveAwayButton.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_homePage_to_makeAdFragment)
         }

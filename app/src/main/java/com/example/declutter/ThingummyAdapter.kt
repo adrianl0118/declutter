@@ -26,8 +26,9 @@ class ThingummyAdapter {
         var key = databaseReference.child("allThings").push().key
         var ref = databaseReference.child("allThings/$key")
         val childUpdates = mapOf("name" to thing?.name, "type" to thing?.type,
-            "dim" to thing?.dim, "description" to thing?.description,
-            "contact" to thing?.contact, "city" to thing?.city)
+            "width" to thing?.width, "depth" to thing?.depth, "height" to thing?.height,
+            "weight" to thing?.weight, "desc" to thing?.desc,
+            "contact" to thing?.contact, "postalCode" to thing?.postalCode)
         ref.updateChildren(childUpdates)
         array.add(thing)
 
@@ -42,11 +43,11 @@ class ThingummyAdapter {
         imageRef.downloadUrl.addOnSuccessListener { uri ->
             Picasso.get().load(uri).into(thingImageView)
         }.addOnFailureListener {
-            // Handle any errors
+
         }
     }
 
-    //Retrieve the data from the firebase at the start of the app process. Only to be called once
+    //Retrieve the data from the firebase at the start of the app process
     fun retrieveData() {
         databaseReference = database.reference
         var query: Query = databaseReference.child("allThings")
@@ -64,19 +65,19 @@ class ThingummyAdapter {
 
     }
 
-    //Sort list by city (location)
+    //Sort list by postalCode (location)
     fun sort() {
-        val sortedList = array.sortedWith(compareBy({it?.city}))
+        val sortedList = array.sortedWith(compareBy({it?.postalCode}))
         array = sortedList.toMutableList()
 
     }
 
     //Filter by a specific city
-    fun sortBy(city: String?) {
+    fun sortBy(postalcode: String?) {
         copy.clear()
 
         for(thing in array){
-            if(thing?.city == city) {
+            if(thing?.postalCode == postalcode) {
                 copy.add(thing)
             }
         }

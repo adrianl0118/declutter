@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/thingummyRecyclerFragment"
-        android:name="com.example.declutter.ThingummyRecycler"
+        android:name="com.example.declutter.ThingummyRecyclerFragment"
         tools:layout="@layout/fragment_thingummy_recycler" >
         android:label="PetRecyclerFragment" >
         <action

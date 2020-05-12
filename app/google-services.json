@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "782218557858",
+    "firebase_url": "https://declutter-2d28f.firebaseio.com",
+    "project_id": "declutter-2d28f",
+    "storage_bucket": "declutter-2d28f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:782218557858:android:cd8963bd6019074e675afb",
+        "android_client_info": {
+          "package_name": "com.example.declutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "782218557858-9v77c5e1a07r3smlansft29up4j8fjtk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNava00pw_dDg152lqjVBMtGfBks1YkB0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "782218557858-9v77c5e1a07r3smlansft29up4j8fjtk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

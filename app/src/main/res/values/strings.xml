@@ -13,4 +13,6 @@
     <string name="contact">Contact</string>
     <string name="thingType">Item Type</string>
     <string name="type">Type</string>
+    <string name="backHomeButton">Home</string>
+    <string name="logo" />
 </resources>

@@ -29,7 +29,7 @@ class ThingummyRecyclerFragment : Fragment() {
         recyclerViewThing.layoutManager = LinearLayoutManager(activity)
         recyclerViewThing.adapter = ThingummyRecAdapter()
 
-        binding.backToHomeButoon.setOnClickListener{view: View->
+        binding.backToHomeButton.setOnClickListener{view: View->
             view.findNavController().navigate(R.id.action_thingummyRecyclerFragment_to_homePage)
         }
 

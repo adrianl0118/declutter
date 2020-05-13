@@ -97,8 +97,6 @@
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/take_Photo"
-
-
                 />
 
             <com.beardedhen.androidbootstrap.BootstrapEditText

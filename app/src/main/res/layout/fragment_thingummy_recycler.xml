@@ -6,12 +6,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/yellowPee"
-        tools:context=".PetRecyclerFragment">
+        android:background="@color/None"
+        tools:context=".ThingummyRecyclerFragment">
 
 
         <com.beardedhen.androidbootstrap.BootstrapButton
-            android:id="@+id/backToHomeButoon"
+            android:id="@+id/backToHomeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="162dp"
@@ -36,7 +36,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/backToHomeButoon"
+            app:layout_constraintTop_toBottomOf="@+id/backToHomeButton"
             app:layout_constraintVertical_bias="0.49" />
 
 

@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.thing_row.view.*
 
 class ThingummyRecAdapter : RecyclerView.Adapter<ThingummyRecAdapter.ThingViewHolder>() {
 
@@ -19,9 +20,9 @@ class ThingummyRecAdapter : RecyclerView.Adapter<ThingummyRecAdapter.ThingViewHo
 
     override fun onBindViewHolder(holder: ThingViewHolder, position: Int) {
 
-        var pet = thingAdapter.returnArray()[position]
-        holder.view.petNameTextView.text = pet?.name
-        holder.view.petBioTextView.text = pet?.bio
+        var thing = thingAdapter.returnArray()[position]
+        holder.view.thingNameTextView.text = thing?.name
+        holder.view.thingDescTextView.text = thing?.desc
         holder.view.petTypeView.text = pet?.type
         holder.view.petContactTextView.text = pet?.contact
         thingAdapter.setImageOnView(pet?.name, holder.view.petImageView)

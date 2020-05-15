@@ -3,7 +3,7 @@
     <string name="enter_postal">Enter Your Postal Code or ZIP</string>
     <string name="find_page_button">Find Stuff</string>
     <string name="giveaway_page_button">Give Stuff</string>
-    <string name="grabIt">Grab It!</string>
+    <string name="moreInfo">More Info</string>
     <string name="thingNameCatalogue">Item Name</string>
     <string name="contentResThing">Image of Thing</string>
     <string name="desc_title">Description</string>
@@ -19,4 +19,6 @@
     <string name="width">Width</string>
     <string name="depth">Depth</string>
     <string name="height">Height</string>
+    <string name="weightHead">Weight (kg):</string>
+    <string name="weightHere">Item or Animal Weight</string>
 </resources>

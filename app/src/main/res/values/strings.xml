@@ -29,4 +29,9 @@
     <string name="emailHint">Email</string>
     <string name="phoneHint">Phone</string>
     <string name="postalHint">Postal Code or ZIP</string>
+    <string name="sizeInfo">Size Info</string>
+    <string name="widthHint">Width (cm)</string>
+    <string name="depthHint">Depth (cm)</string>
+    <string name="heightHint">Height (cm)</string>
+    <string name="weightHint">Weight (kg)</string>
 </resources>

@@ -69,7 +69,6 @@ class ThingummyAdapter {
     fun sort() {
         val sortedList = array.sortedWith(compareBy({it?.postalCode}))
         array = sortedList.toMutableList()
-
     }
 
     //Filter by a specific city

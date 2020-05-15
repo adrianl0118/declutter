@@ -21,4 +21,9 @@
     <string name="height">Height</string>
     <string name="weightHead">Weight (kg):</string>
     <string name="weightHere">Item or Animal Weight</string>
+    <string name="thing_picture_cd">Picture of Thing</string>
+    <string name="takePhotoHint">Take Photo</string>
+    <string name="thingHeadlineHint">Headline</string>
+    <string name="submit">Submit</string>
+    <string name="contact_info_title">Contact Info</string>
 </resources>

@@ -15,7 +15,7 @@
 
 
             <ImageView
-                android:id="@+id/pet_picture"
+                android:id="@+id/item_picture"
                 android:layout_width="151dp"
                 android:layout_height="153dp"
                 android:layout_marginStart="34dp"
@@ -40,9 +40,9 @@
                 android:textSize="18sp"
                 app:bootstrapBrand="primary"
                 app:bootstrapSize="lg"
-                app:layout_constraintBottom_toTopOf="@+id/bio_title"
+                app:layout_constraintBottom_toTopOf="@+id/desc_title"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pet_picture"
+                app:layout_constraintTop_toBottomOf="@+id/item_picture"
                 app:roundedCorners="true"
                 app:showOutline="false" />
 
@@ -54,14 +54,14 @@
                 android:layout_marginTop="50dp"
                 android:layout_marginEnd="65dp"
                 android:ems="10"
-                android:hint="@string/thingNameHint"
+                android:hint="@string/thingHeadlineHint"
                 android:importantForAutofill="yes"
                 android:inputType="textPersonName"
                 android:textSize="18sp"
                 app:bootstrapBrand="info"
                 app:bootstrapSize="lg"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/pet_picture"
+                app:layout_constraintStart_toEndOf="@+id/item_picture"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Spinner
@@ -75,12 +75,12 @@
                 android:spinnerMode="dropdown"
                 app:layout_constraintBottom_toTopOf="@+id/take_Photo"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/pet_picture"
+                app:layout_constraintStart_toEndOf="@+id/item_picture"
                 app:layout_constraintTop_toBottomOf="@+id/petNameEdit"
                 app:layout_constraintVertical_bias="1.0" />
 
             <com.beardedhen.androidbootstrap.AwesomeTextView
-                android:id="@+id/bio_title"
+                android:id="@+id/desc_title"
                 style="@style/desc_style"
                 android:layout_width="136dp"
                 android:layout_height="31dp"
@@ -92,7 +92,7 @@
                 android:textSize="24sp"
                 app:bootstrapBrand="primary"
                 app:bootstrapText="@string/desc_title"
-                app:layout_constraintBottom_toTopOf="@+id/petBioEdit"
+                app:layout_constraintBottom_toTopOf="@+id/thingDescEdit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -100,9 +100,9 @@
                 />
 
             <com.beardedhen.androidbootstrap.BootstrapEditText
-                android:id="@+id/petBioEdit"
-                android:layout_width="wrap_content"
-                android:layout_height="91dp"
+                android:id="@+id/thingDescEdit"
+                android:layout_width="320dp"
+                android:layout_height="85dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="13dp"
                 android:layout_marginEnd="55dp"
@@ -110,13 +110,14 @@
                 android:ems="10"
                 android:hint="@string/desc_hint"
                 android:inputType="textPersonName"
+                android:textAlignment="center"
                 app:bootstrapBrand="info"
                 app:bootstrapSize="lg"
                 app:layout_constraintBottom_toTopOf="@+id/contact_info_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bio_title" />
+                app:layout_constraintTop_toBottomOf="@+id/desc_title" />
 
             <com.beardedhen.androidbootstrap.AwesomeTextView
                 android:id="@+id/contact_info_title"
@@ -132,7 +133,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/petBioEdit" />
+                app:layout_constraintTop_toBottomOf="@+id/thingDescEdit" />
 
             <com.beardedhen.androidbootstrap.BootstrapEditText
                 android:id="@+id/ownerEmail"

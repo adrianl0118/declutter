@@ -99,8 +99,8 @@
 
         <com.beardedhen.androidbootstrap.AwesomeTextView
             android:id="@+id/thingContactTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="286dp"
+            android:layout_height="31dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="32dp"
             android:background="@drawable/profile_background"
@@ -115,15 +115,15 @@
 
         <com.beardedhen.androidbootstrap.AwesomeTextView
             android:id="@+id/contactTextView"
-            android:layout_width="93dp"
-            android:layout_height="45dp"
+            android:layout_width="76dp"
+            android:layout_height="18dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:text="@string/contact"
             android:visibility="visible"
             app:bootstrapBrand="regular"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/thingDescTextView" />
+            app:layout_constraintTop_toBottomOf="@+id/widthTextView" />
 
         <com.beardedhen.androidbootstrap.AwesomeTextView
             android:id="@+id/thingTypeView"
@@ -142,8 +142,8 @@
 
         <com.beardedhen.androidbootstrap.AwesomeTextView
             android:id="@+id/typeView"
-            android:layout_width="59dp"
-            android:layout_height="40dp"
+            android:layout_width="58dp"
+            android:layout_height="24dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/type"
@@ -153,6 +153,50 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/thingContactTextView" />
+
+        <TextView
+            android:id="@+id/widthTextView"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/profile_background"
+            android:text="@string/width"
+            android:textAlignment="center"
+            app:layout_constraintStart_toEndOf="@+id/dimTextView"
+            app:layout_constraintTop_toTopOf="@+id/dimTextView" />
+
+        <TextView
+            android:id="@+id/dimTextView"
+            android:layout_width="118dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/dimText"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/thingDescTextView" />
+
+        <TextView
+            android:id="@+id/depthTextView"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:background="@drawable/profile_background"
+            android:text="@string/depth"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/heightTextView"
+            app:layout_constraintStart_toEndOf="@+id/widthTextView"
+            app:layout_constraintTop_toTopOf="@+id/dimTextView" />
+
+        <TextView
+            android:id="@+id/heightTextView"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/profile_background"
+            android:text="@string/height"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dimTextView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

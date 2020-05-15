@@ -15,4 +15,8 @@
     <string name="type">Type</string>
     <string name="backHomeButton">Home</string>
     <string name="logo" />
+    <string name="dimText">Dimensions (cm):</string>
+    <string name="width">Width</string>
+    <string name="depth">Depth</string>
+    <string name="height">Height</string>
 </resources>

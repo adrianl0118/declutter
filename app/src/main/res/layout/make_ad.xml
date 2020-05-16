@@ -16,11 +16,11 @@
 
             <ImageView
                 android:id="@+id/item_picture"
-                android:layout_width="151dp"
-                android:layout_height="153dp"
-                android:layout_marginStart="34dp"
+                android:layout_width="180dp"
+                android:layout_height="168dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginBottom="5dp"
                 android:contentDescription="@string/thing_picture_cd"
                 app:layout_constraintBottom_toTopOf="@+id/take_Photo"

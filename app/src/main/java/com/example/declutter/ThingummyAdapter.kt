@@ -25,19 +25,19 @@ class ThingummyAdapter {
         databaseReference = database.reference
         var key = databaseReference.child("allThings").push().key
         var ref = databaseReference.child("allThings/$key")
-        val childUpdates = mapOf("name" to thing?.name, "type" to thing?.type,
+        val childUpdates = mapOf("headline" to thing?.headline, "type" to thing?.type,
             "width" to thing?.width, "depth" to thing?.depth, "height" to thing?.height,
             "weight" to thing?.weight, "desc" to thing?.desc,
             "contact" to thing?.contact, "postalCode" to thing?.postalCode)
         ref.updateChildren(childUpdates)
         array.add(thing)
 
-        val refStore = storageRef.child("${thing?.name}.jpg")
+        val refStore = storageRef.child("${thing?.headline}.jpg")
         val stream = FileInputStream(file)
         refStore.putStream(stream).addOnSuccessListener { stream.close() }
     }
 
-    //Display an image of a thing inside a view. Requires a view and the name of the thing
+    //Display an image of a thing inside a view. Requires a view and the headline of the thing
     fun setImageOnView(name: String?, thingImageView: ImageView) {
         var imageRef = storageRef.child("${name}.jpg")
         imageRef.downloadUrl.addOnSuccessListener { uri ->

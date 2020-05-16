@@ -19,14 +19,14 @@
             android:layout_marginBottom="4dp"
             android:contentDescription="@string/contentResThing"
             android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/thingNameTextView"
+            app:layout_constraintBottom_toTopOf="@+id/thingHeadlineTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars[2]" />
 
         <com.beardedhen.androidbootstrap.AwesomeTextView
-            android:id="@+id/thingNameTextView"
+            android:id="@+id/thingHeadlineTextView"
             android:layout_width="0dp"
             android:layout_height="53dp"
             android:layout_marginStart="50dp"
@@ -42,7 +42,7 @@
             app:layout_constraintTop_toBottomOf="@+id/thingImageView" />
 
         <com.beardedhen.androidbootstrap.BootstrapButton
-            android:id="@+id/grabIt"
+            android:id="@+id/moreInfoBtn"
             android:layout_width="137dp"
             android:layout_height="50dp"
             android:layout_marginTop="4dp"
@@ -53,7 +53,7 @@
             app:bootstrapSize="lg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/thingNameTextView"
+            app:layout_constraintTop_toBottomOf="@+id/thingHeadlineTextView"
             app:roundedCorners="true"
             app:showOutline="false" />
 
@@ -95,7 +95,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.489"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/thingNameTextView" />
+            app:layout_constraintTop_toBottomOf="@+id/thingHeadlineTextView" />
 
         <com.beardedhen.androidbootstrap.AwesomeTextView
             android:id="@+id/thingContactTextView"

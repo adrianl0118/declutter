@@ -3,7 +3,6 @@ package com.example.declutter
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.Insets.add
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -13,7 +12,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.core.view.OneShotPreDrawListener.add
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -29,7 +27,7 @@ class MakeAdFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private lateinit var imgBitmap: Bitmap
     private var imgUri: Uri? = null
 
-    val thingTypes = arrayOf("Furniture", "Appliance", "Gaming", "Toys", "Household", "Pet", "Vehicle", "Sports")
+    val thingTypes = arrayOf("Furniture", "Appliance", "Gaming", "Toys", "Household", "Pet", "Sports")
 
     lateinit var binding: MakeAdBinding
 
@@ -38,8 +36,7 @@ class MakeAdFragment : Fragment(), AdapterView.OnItemSelectedListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding =
-            DataBindingUtil.inflate(inflater, R.layout.make_ad, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.make_ad, container, false)
 
         val adapt = ArrayAdapter(this.context!!, android.R.layout.simple_spinner_item, thingTypes)
 
@@ -50,10 +47,14 @@ class MakeAdFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
         //SET AutoFIll to get rid of annoying warnings
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            binding.thingNameEdit.setAutofillHints(View.AUTOFILL_HINT_NAME)
+            binding.headlineEdit.setAutofillHints(View.AUTOFILL_HINT_NAME)
+            binding.widthInput.setAutofillHints(View.AUTOFILL_HINT_NAME)
+            binding.depthInput.setAutofillHints(View.AUTOFILL_HINT_NAME)
+            binding.heightInput.setAutofillHints(View.AUTOFILL_HINT_NAME)
+            binding.weightInput.setAutofillHints(View.AUTOFILL_HINT_NAME)
             binding.ownerEmail.setAutofillHints(View.AUTOFILL_HINT_EMAIL_ADDRESS)
             binding.ownerNumber.setAutofillHints(View.AUTOFILL_HINT_PHONE)
-            binding.ownerCity.setAutofillHints(View.AUTOFILL_HINT_POSTAL_CODE)
+            binding.ownerPostal.setAutofillHints(View.AUTOFILL_HINT_POSTAL_CODE)
         }
 
         binding.takePhoto.setOnClickListener { view: View ->
@@ -62,7 +63,6 @@ class MakeAdFragment : Fragment(), AdapterView.OnItemSelectedListener {
         binding.submitBt.setOnClickListener { view: View ->
             buttonCheck(view)
         }
-
         return binding.root
     }
 
@@ -74,14 +74,12 @@ class MakeAdFragment : Fragment(), AdapterView.OnItemSelectedListener {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         handleSmallCameraPhoto(data)
-
     }
 
     private fun handleSmallCameraPhoto(intent: Intent?) {
         val extras = intent?.extras
         imgBitmap = extras!!.get("data") as Bitmap
-        binding.thingPicture.setImageBitmap(imgBitmap)
-
+        binding.itemPicture.setImageBitmap(imgBitmap)
     }
 
     // Method to save an bitmap to a file
@@ -109,19 +107,38 @@ class MakeAdFragment : Fragment(), AdapterView.OnItemSelectedListener {
         var readyForSubmission = true
         var numeric = true
         var error = ""
-        var contactCity = 0
-        var name = binding.thingNameEdit.text.toString()
-        var bio = binding.thingDescEdit.text.toString()
+        var headline = binding.headlineEdit.text.toString()
+        var desc = binding.thingDescEdit.text.toString()
+        var width = binding.widthInput.text.toString().toInt()
+        var depth = binding.depthInput.text.toString().toInt()
+        var height = binding.heightInput.text.toString().toInt()
+        var weight = binding.weightInput.text.toString().toInt()
         var contactEmail = binding.ownerEmail.text.toString()
         var contactPhone = binding.ownerNumber.text.toString()
+        var contactPostal = binding.ownerPostal.text.toString()
         var contactInfo = ""
 
-
         //Name and Picture validation
-        if (name == "" || binding.thingPicture.drawable == null) {
+        if (headline == "" || binding.itemPicture.drawable == null) {
             readyForSubmission = false
-            //Inform user that name and zip is required
+            //Inform user that name and photo are required
             error = "No Name and/or Image"
+            binding.erroMessage.text = error
+        }
+
+        //Dimension validation
+        try {
+            width = binding.widthInput.text.toString().toInt()
+            depth = binding.depthInput.text.toString().toInt()
+            height = binding.heightInput.text.toString().toInt()
+            weight = binding.weightInput.text.toString().toInt()
+        } catch (e: NumberFormatException) {
+            numeric = false
+        }
+        if (!numeric) {
+            readyForSubmission = false
+            //Inform user of improper dimensions and/or weights
+            error += "\nImproper dimensions and/or weights"
             binding.erroMessage.text = error
         }
 
@@ -129,7 +146,7 @@ class MakeAdFragment : Fragment(), AdapterView.OnItemSelectedListener {
         if (contactEmail == "" && contactPhone == "") {
             readyForSubmission = false
             //Inform user that either an email or phone is needed
-            error += "\nNeed Email/or Phone"
+            error += "\nNeed Email or Phone"
             binding.erroMessage.text = error
 
         } else {
@@ -141,45 +158,36 @@ class MakeAdFragment : Fragment(), AdapterView.OnItemSelectedListener {
             }
         }
 
-        //City Validation
-        try {
-            contactCity = binding.ownerCity.text.toString()
-        } catch (e: NumberFormatException) {
-            numeric = false
-        }
-
-        if ((!numeric) || binding.ownerCity.text.toString().length != 5) {
+        //Postal Code Validation
+        if (contactPostal == "" || contactPostal.length < 5 || contactPostal.length > 7) {
             readyForSubmission = false
-            //Inform user of improper zip code
-            error += "\nImproper ZIP Code"
+            //Inform user that postal is required
+            error += "\nPostal or ZIP code is required"
             binding.erroMessage.text = error
         }
 
-        //Bio Validation
-        if (bio == "") {
-            bio = "No Bio Info Entered"
+        //Desc Validation
+        if (desc == "") {
+            desc = "No Bio Info Entered"
         }
 
         if (readyForSubmission) {
-            val pet = Thingummy(name, pet_type, bio, contactInfo, contactZip)
-            ThingummyAdapter.add(pet, getImageFile(imgBitmap))
-            view.findNavController().navigate(R.id.action_makeProfileFragment_to_homePage)
+            val thing = Thingummy(headline, thing_type, width, depth, height, weight, desc, contactInfo, contactPostal)
+            thingAdapter.add(thing, getImageFile(imgBitmap))
+            view.findNavController().navigate(R.id.action_makeAdFragment_to_homePage)
         }
     }
 
     override fun onItemSelected(arg0: AdapterView<*>, arg1: View, position: Int, id: Long) {
         when (position) {
-            //"Dog", "Cat", "Bird", "Rabbit", "Hamster", "Lizard", "Snake", "Turtle", "Other"
-            0 -> thing_type = "Dog"
-            1 -> thing_type = "Cat"
-            2 -> thing_type = "Bird"
-            3 -> thing_type = "Rabbit"
-            4 -> thing_type = "Hamster"
-            5 -> thing_type = "Lizard"
-            6 -> thing_type = "Snake"
-            7 -> thing_type = "Turtle"
+            0 -> thing_type = "Furniture"
+            1 -> thing_type = "Appliance"
+            2 -> thing_type = "Gaming"
+            3 -> thing_type = "Toys"
+            4 -> thing_type = "Household"
+            5 -> thing_type = "Pet"
             else -> {
-                thing_type = "Other"
+                thing_type = "Sports"
             }
         }
     }

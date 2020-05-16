@@ -173,7 +173,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/ownerEmail" />
 
             <com.beardedhen.androidbootstrap.BootstrapEditText
-                android:id="@+id/ownerZip"
+                android:id="@+id/ownerPostal"
                 android:layout_width="294dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -206,7 +206,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ownerZip"
+                app:layout_constraintTop_toBottomOf="@+id/ownerPostal"
                 app:roundedCorners="true"
                 app:showOutline="false" />
 
@@ -292,7 +292,7 @@
 
             <com.beardedhen.androidbootstrap.BootstrapEditText
                 android:id="@+id/weightInput"
-                ndroid:ems="10"
+                android:ems="10"
                 android:layout_width="110dp"
                 android:layout_height="39dp"
                 android:layout_marginStart="64dp"

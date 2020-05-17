@@ -41,8 +41,8 @@
 
         <com.beardedhen.androidbootstrap.BootstrapEditText
             android:id="@+id/editPostal"
-            android:layout_width="230dp"
-            android:layout_height="60dp"
+            android:layout_width="260dp"
+            android:layout_height="75dp"
             android:layout_marginStart="130dp"
             android:layout_marginTop="22dp"
             android:layout_marginEnd="130dp"
